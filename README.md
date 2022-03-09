@@ -12,3 +12,9 @@ sqlite> SELECT * FROM Queue;
 some/command|df7044bc01c6fb268b453fd00c08298d|0|1646751944||
 sqlite>
 ```
+
+### How to start captain? 
+
+```console
+python3 server.py
+```
