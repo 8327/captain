@@ -3,7 +3,7 @@
 Forwards REST calls to a sqlite queue.
 
 ```console
-$ curl localhost:18000/api/some/command
+$ curl -k -u role_001:1234 https://localhost:10443/api/some/command
 {"success":true}
 $ sqlite3 /tmp/captain.queue
 SQLite version 3.31.1 2020-01-27 19:55:54
