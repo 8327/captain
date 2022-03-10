@@ -7,7 +7,7 @@ from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from litequeue import SQLQueue
 
-http_port = 18001
+http_port = 10443
 db_file = "/tmp/captain.queue"
 users = {
         "role_001": generate_password_hash("1234"),
@@ -37,5 +37,5 @@ def api(filename):
     return resp
 
 if __name__ == '__main__':
-    app.run(debug=False, host="0.0.0.0", port=http_port)
+    app.run(debug=False, host="0.0.0.0", ssl_context='adhoc', port=http_port)
 
