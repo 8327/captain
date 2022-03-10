@@ -1,6 +1,6 @@
 # captain
 
-Forwards REST calls to a sqlite queue.
+Forwards REST calls to a sqlite queue. Not yet ready for producation.
 
 ```console
 $ curl -k -u role_001:1234 https://localhost:10443/api/some/command
@@ -17,4 +17,26 @@ sqlite>
 
 ```console
 python3 server.py
+```
+
+### Using captain with self-signed SSL certificates
+
+Above use of curl uses the `-k` flag to disable certificate validation, to (partly) avoid this you can do:
+
+#### On the server:
+```console
+cd captain
+mkdir ssl ; cd ssl
+openssl req -x509 -newkey rsa:4096 -nodes -out cert.pem -keyout key.pem -days 365
+cd ..
+python3 server.py
+```
+
+#### On the Client:
+```console
+echo quit | openssl s_client -showcerts -servername server -connect localhost:10443 > cacert.pem
+```
+Subsequent calls to curl can leave the `-k` flag away but specify the pem file.
+```console
+curl --cacert cacert.pem -u role_001:1234 https://localhost:10443/api/some/command
 ```
