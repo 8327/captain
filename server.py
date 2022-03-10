@@ -1,5 +1,4 @@
-import os
-
+from os import path
 from flask import Flask
 from flask import jsonify
 from flask import render_template
@@ -37,5 +36,8 @@ def api(filename):
     return resp
 
 if __name__ == '__main__':
-    app.run(debug=False, host="0.0.0.0", ssl_context='adhoc', port=http_port)
+    if path.exists('ssl'):
+        app.run(debug=False, host="0.0.0.0", ssl_context=('ssl/cert.pem', 'ssl/key.pem'), port=http_port)
+    else:
+        app.run(debug=False, host="0.0.0.0", ssl_context='adhoc', port=http_port)
 
