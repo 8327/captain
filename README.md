@@ -25,6 +25,12 @@ some/command|df7044bc01c6fb268b453fd00c08298d|0|1646751944||
 sqlite>
 ```
 
+Pop something from the queue:
+```console
+python3 pop.py
+{'message': 'some/command', 'message_id': 'df7044bc01c6fb268b453fd00c08298d'}
+```
+
 ## Using captain with self-signed SSL certificates
 
 Above use of curl uses the `-k` flag to disable certificate validation, to (partly) avoid this you can do:
