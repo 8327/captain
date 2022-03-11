@@ -2,9 +2,21 @@
 
 Forwards REST calls to a sqlite queue. Not yet ready for producation.
 
+## Example use
+
+Start captain server:
+```console
+python3 server.py
+```
+
+Enqueue some data using curl:
 ```console
 $ curl -k -u role_001:1234 https://localhost:10443/api/some/command
 {"success":true}
+```
+
+Let's see if something is in the queue:
+```console
 $ sqlite3 /tmp/captain.queue
 SQLite version 3.31.1 2020-01-27 19:55:54
 Enter ".help" for usage hints.
@@ -13,17 +25,11 @@ some/command|df7044bc01c6fb268b453fd00c08298d|0|1646751944||
 sqlite>
 ```
 
-### How to start captain? 
-
-```console
-python3 server.py
-```
-
-### Using captain with self-signed SSL certificates
+## Using captain with self-signed SSL certificates
 
 Above use of curl uses the `-k` flag to disable certificate validation, to (partly) avoid this you can do:
 
-#### On the server:
+### On the server:
 ```console
 cd captain
 mkdir ssl ; cd ssl
@@ -32,7 +38,7 @@ cd ..
 python3 server.py
 ```
 
-#### On the Client:
+### On the client:
 ```console
 echo quit | openssl s_client -showcerts -servername server -connect localhost:10443 > cacert.pem
 ```
