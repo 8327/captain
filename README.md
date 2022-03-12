@@ -33,7 +33,7 @@ python3 pop.py
 
 ## Using captain with self-signed SSL certificates
 
-Above use of curl uses the `-k` flag to disable certificate validation, to (partly) avoid this you can do:
+Above use of curl uses the `-k` flag to disable certificate validation, to avoid this you can do:
 
 ### On the server:
 ```console
@@ -52,3 +52,9 @@ Subsequent calls to curl can leave the `-k` flag away but specify the pem file.
 ```console
 curl --cacert cacert.pem -u role_001:1234 https://localhost:10443/api/some/command
 ```
+
+## TODO
+
+- [ ] Run server properly via wsgi (or so) 
+- [ ] Make this easy to install (git clone https://github.com/8327/captain && captain/install.sh
+ 
