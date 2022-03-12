@@ -1,6 +1,6 @@
 # captain
 
-Forwards REST calls to a sqlite queue. Not yet ready for producation.
+Forwards REST calls to a sqlite queue. Not yet ready for producation. I use captain as a remote control for my "linux-enabled speaker". A local daemon
 
 ## Example use
 
@@ -55,6 +55,7 @@ curl --cacert cacert.pem -u role_001:1234 https://localhost:10443/api/some/comma
 
 ## TODO
 
+- [ ] litequeue hook/trigger so that I don't have to busy-loop over pop
 - [ ] Run server properly via wsgi (or so) 
 - [ ] Make this easy to install (git clone https://github.com/8327/captain && captain/install.sh
  
