@@ -1,6 +1,6 @@
 # captain
 
-Forwards REST calls to a sqlite queue. Not yet ready for producation. I use captain as a remote control for my "linux-enabled speaker". A local daemon
+Forwards REST calls to a sqlite queue. Not yet ready for producation. I use captain as a remote control for my "linux-enabled speaker".
 
 ## Example use
 
